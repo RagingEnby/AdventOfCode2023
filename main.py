@@ -1,22 +1,16 @@
 import os
 
-def run_day(day_number):
-  script_path = f'Day{day_number}'
+def run(day, part):
+  script_path = f'Day{day}'
 
-  if os.path.exists(script_path):
-    os.chdir(script_path)
-    os.system('python3 main.py')
-  else:
-    print(f"{day_number} is not yet completed :(")
+  os.chdir(script_path)
+  os.system(f'python3 part_{part}.py')
 
 def main():
   try:
-    to_run = int(input('Which day would you like to run? > '))
-
-    if 1 <= to_run <= 25:
-      run_day(to_run)
-    else:
-      exit("Not a valid integer between 1 and 25")
+    day = int(input('Which day would you like to run? > '))
+    part = int(input('Which part would you like to run? > '))
+    run(day, part)
 
   except ValueError:
     exit("Invalid integer")
