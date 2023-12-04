@@ -1,10 +1,11 @@
 import os
 
 def run_day(day_number):
-  script_path = f'Day{day_number}/main.py'
+  script_path = f'Day{day_number}'
 
   if os.path.exists(script_path):
-    exec(open(script_path).read())
+    os.chdir(script_path)
+    os.system('python3 main.py')
   else:
     print(f"{day_number} is not yet completed :(")
 
